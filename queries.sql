@@ -37,7 +37,7 @@ order by average_income ASC
 ;
 
 
---НЕПРАВИЛЬНОШаг 5, задание 3 отчет с данными по выручке по каждому продавцу и дню недели
+--Шаг 5, задание 3 отчет с данными по выручке по каждому продавцу и дню недели
 select concat(e.first_name, ' ', e.last_name) as name,
 to_char(s.sale_date, 'Day') as weekday,
 round(sum(p.price * s.quantity),0) as income
@@ -46,8 +46,8 @@ inner join sales s
 on e.employee_id = s.sales_person_id
 inner join products p
 on s.product_id = p.product_id
-group by to_char(s.sale_date, 'ID'), concat(e.first_name, ' ', e.last_name)
-order by name, s.sale_date
+group by to_char(s.sale_date, 'ID'), 1, 2
+order by to_char(s.sale_date, 'ID'), 1
 ;
 
 --Шаг 6, задание 1 количество покупателей в разных возрастных группах: 16-25, 26-40 и 40+
