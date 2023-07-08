@@ -30,7 +30,7 @@ common_average as(
 select avg(average_income) as common_average
 from tab
 )
-select name, round(average_income, 0)
+select name, round(average_income, 0) as average_income
 from tab
 where average_income < (select common_average from common_average)
 order by average_income ASC
