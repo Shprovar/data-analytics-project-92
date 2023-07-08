@@ -39,7 +39,7 @@ order by average_income ASC
 
 --Шаг 5, задание 3 отчет с данными по выручке по каждому продавцу и дню недели
 select concat(e.first_name, ' ', e.last_name) as name,
-to_char(s.sale_date, 'Day') as weekday,
+to_char(s.sale_date, 'day') as weekday,
 round(sum(p.price * s.quantity),0) as income
 from employees e
 inner join sales s
