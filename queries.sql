@@ -68,7 +68,7 @@ order by age_category
 --Шаг 6, задание 2  количество покупателей и выручка по месяцам
 select
 concat(to_char(s.sale_date, 'YYYY'), '-', to_char(s.sale_date, 'MM')) as date,
-count(c.customer_id) as total_customers,
+count(distinct c.customer_id) as total_customers,
 sum(p.price * s.quantity) as income
 from customers c
 inner join sales s
