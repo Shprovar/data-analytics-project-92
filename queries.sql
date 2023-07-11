@@ -27,8 +27,12 @@ on s.product_id = p.product_id
 group by concat(e.first_name, ' ', e.last_name)
 ),
 common_average_tab as(
-select avg(average_income) as common_average
-from tab
+select avg(p.price * s.quantity) as common_average
+from employees e
+inner join sales s
+on e.employee_id = s.sales_person_id
+inner join products p
+on s.product_id = p.product_id
 )
 select name, average_income
 from tab
